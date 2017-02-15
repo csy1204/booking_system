@@ -1,0 +1,37 @@
+<%= form_for(major) do |f| %>
+  <% if major.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(major.errors.count, "error") %> prohibited this major from being saved:</h2>
+
+      <ul>
+      <% major.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notice %>
+    <%= f.text_area :notice %>
+  </div>
+
+  <div class="field">
+    <%= f.label :book_start %>
+    <%= f.datetime_select :book_start %>
+  </div>
+
+  <div class="field">
+    <%= f.label :book_end %>
+    <%= f.datetime_select :book_end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

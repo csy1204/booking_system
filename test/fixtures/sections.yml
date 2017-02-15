@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  major_id: 1
+  len_x: 1
+  len_y: 1
+  name: MyString
+  location: MyString
+
+two:
+  major_id: 1
+  len_x: 1
+  len_y: 1
+  name: MyString
+  location: MyString

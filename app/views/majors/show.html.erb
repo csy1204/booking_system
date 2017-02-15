@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @major.name %>
+</p>
+
+<p>
+  <strong>Notice:</strong>
+  <%= @major.notice %>
+</p>
+
+<p>
+  <strong>Book start:</strong>
+  <%= @major.book_start %>
+</p>
+
+<p>
+  <strong>Book end:</strong>
+  <%= @major.book_end %>
+</p>
+
+  <% @major.sections.each do |sec| %>
+    <%= sec.name %> // <%= sec.location %>
+
+    <table>
+      <% (sec.len_y).times do |y| %>
+      <tr>
+        <% (sec.len_x).times do |x| %>
+            <% @loc = (sec.lockers.where(loc_x: x+1, loc_y: y+1))[0] %>
+            <% unless @loc.booking.nil? %>
+              <td style="color: red"><%= @loc.loc_name %></td>
+            <% else %>
+                <td>
+                  <%= render 'booking_form', lo: @loc %>
+                </td>
+            <% end %>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+
+  <% end %>
+
+
+
+
+<%= link_to 'Edit', edit_major_path(@major) %> |
+<%= link_to 'Back', majors_path %>
+
