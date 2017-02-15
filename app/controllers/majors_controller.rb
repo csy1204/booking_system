@@ -5,6 +5,8 @@ class MajorsController < ApplicationController
   # GET /majors.json
   def index
     @majors = Major.all
+    @bookings = Booking.all
+    @users = User.all
   end
 
   # GET /majors/1

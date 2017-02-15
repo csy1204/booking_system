@@ -38,3 +38,27 @@ end
     end
   end
 end
+
+(1..3).each do |n|
+  (1..5).each do |r|
+    user = User.create(email: Faker::Internet.email, password: 'test123', major_id: n, school_num: 123132)
+    bo = Booking.new(locker_id: n*r)
+    bo.user = user
+    bo.major = user.major
+    bo.save
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

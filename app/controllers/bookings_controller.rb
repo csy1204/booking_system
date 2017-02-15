@@ -30,7 +30,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @book = Booking.find(params[:id])
+    @book.destroy
 
+    redirect_to root_url, notice: '삭제에 성공했습니다'
   end
 
   private

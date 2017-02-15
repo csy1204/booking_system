@@ -41,3 +41,11 @@
 
 <%= link_to 'New Major', new_major_path %>
 
+<% @bookings.each do |b| %>
+    <p><%= b.created_at%> // <%= b.user.email %>님께서 <%= b.major.name %>의 사물함 <%= b.locker.loc_name %>을 예약하셨습니다. <%= link_to '삭제', b, method: :delete, data: { confirm: '정말 삭제하시겠습니까?'} %></p>
+<% end %>
+<hr>
+
+<% @users.each do |u| %>
+  <p><%= u.email %> // <%= u.major.name %> // <% unless u.booking.nil? %> <%= u.booking.locker.loc_name %> <% else %> 미예약 <% end %></p>
+<% end %>
